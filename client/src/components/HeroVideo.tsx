@@ -28,17 +28,17 @@ export default function HeroVideo() {
   };
 
   const item: Variants = {
-    hidden: { opacity: 0, y: 20, filter: "blur(10px)" },
+    hidden: { opacity: 0, y: 15, filter: "blur(8px)" },
     show: { 
       opacity: 1, 
       y: 0, 
       filter: "blur(0px)",
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.5, ease: "easeOut" }
     }
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section className="relative h-[90svh] md:h-screen w-full overflow-hidden flex items-center justify-center">
       {/* Video/Background */}
       <div className="absolute inset-0 z-0">
         {!prefersReducedMotion ? (
@@ -57,7 +57,7 @@ export default function HeroVideo() {
           <img src="/hero-poster.jpg" className="w-full h-full object-cover" alt="Hero background" />
         )}
         {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-10" />
+        <div className="absolute inset-0 bg-black/50 md:bg-gradient-to-b md:from-black/60 md:via-black/40 md:to-black/80 z-10" />
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay z-20 noise-overlay" />
       </div>
 
@@ -67,50 +67,50 @@ export default function HeroVideo() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="max-w-4xl space-y-8"
+          className="max-w-4xl space-y-6 md:space-y-8"
         >
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <motion.h1 
               variants={item}
-              className="text-6xl md:text-8xl font-heading font-bold tracking-tighter text-white leading-[0.9]"
+              className="text-4xl md:text-8xl font-heading font-bold tracking-tighter text-white leading-[0.9]"
             >
               Sarah Jenkins
             </motion.h1>
-            <motion.div variants={item} className="space-y-2">
-              <p className="text-xl md:text-2xl text-white/80 font-light tracking-tight">
-                Camera Operator / Steadicam Operator
+            <motion.div variants={item} className="space-y-1 md:space-y-2">
+              <p className="text-lg md:text-2xl text-white/80 font-light tracking-tight">
+                Steadicam Operator
               </p>
-              <p className="text-sm md:text-base text-white/60 font-mono uppercase tracking-[0.2em]">
-                Feature Films • Commercials • Music Videos • Steadicam
+              <p className="hidden md:block text-sm text-white/60 font-mono uppercase tracking-[0.2em]">
+                Feature Films • Commercials • Music Videos
               </p>
             </motion.div>
           </div>
 
-          <motion.p variants={item} className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl">
+          <motion.p variants={item} className="hidden md:block text-lg md:text-xl text-white/70 leading-relaxed max-w-xl">
             Crafting visual narratives through precise movement and composition. 
             Based in Los Angeles, available worldwide.
           </motion.p>
 
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Link href="/work" className={cn(buttonVariants({ size: "lg" }), "rounded-none text-base px-8 h-12 uppercase tracking-wide font-medium bg-white text-black hover:bg-white/90")}>
-              View Work
+          <motion.div variants={item} className="flex flex-row gap-4 pt-2 md:pt-4">
+            <Link href="/work" className={cn(buttonVariants({ size: "default" }), "md:h-12 md:px-8 rounded-none text-xs md:text-base uppercase tracking-wide font-medium bg-white text-black hover:bg-white/90")}>
+              Work
             </Link>
-            <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "rounded-none text-base px-8 h-12 uppercase tracking-wide font-medium border-white/20 text-white hover:bg-white/10 backdrop-blur-sm")}>
+            <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "default" }), "md:h-12 md:px-8 rounded-none text-xs md:text-base uppercase tracking-wide font-medium border-white/20 text-white hover:bg-white/10 backdrop-blur-sm")}>
               Contact
             </Link>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator - hidden on small mobile */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex-col items-center gap-2"
       >
         <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Scroll</span>
-        <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+        <div className="w-px h-8 md:h-12 bg-gradient-to-b from-white/40 to-transparent" />
       </motion.div>
     </section>
   );

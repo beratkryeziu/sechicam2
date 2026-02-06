@@ -1,0 +1,90 @@
+Build a minimalistic, modern portfolio website for a Camera Operator / Steadicam Operator.
+
+STACK & REQUIREMENTS
+- Use Next.js (App Router) + TypeScript + TailwindCSS.
+- Minimal design, lots of whitespace, fast loading, responsive, accessible.
+- No heavy animations. Subtle hover states only.
+- SEO basics: titles, meta description, OpenGraph defaults.
+- Content should be data-driven from a single file (e.g. /src/data/portfolio.ts) so I can edit films/videos without touching UI code.
+
+SITE STRUCTURE
+1) Home page (/)
+   - Simple hero section: name, role (Camera Operator / Steadicam Operator), short one-liner.
+   - Buttons/links: “View Work” (to /work) and “Contact” (to /contact).
+   - Optional: small “Selected clients” line and a clean footer.
+
+2) Work page (/work)
+   - Header: “Work”
+   - Filters/tabs with 3 categories:
+     - Films
+     - Commercials
+     - Music Videos
+   - Default active tab: Films.
+   - Use URL state so tabs can be shared:
+     - /work?category=films
+     - /work?category=commercials
+     - /work?category=music-videos
+
+WORK CONTENT RULES
+A) Films tab
+- Display a grid of film “cards” with movie poster image.
+- Each card shows: Title, Year (optional).
+- Clicking a film opens a dedicated film detail page:
+  - /work/films/[slug]
+- Film detail page must include:
+  - Large poster
+  - Description paragraph(s)
+  - Credit block with:
+    - Camera Operator name
+    - Steadicam Operator name (if different / optional)
+  - Optional: external link(s) (IMDb, official site, trailer).
+
+B) Commercials tab & Music Videos tab
+- Show ONLY videos (no posters + long descriptions).
+- Minimal organized grid with consistent thumbnails.
+- Each video item supports embedding from:
+  - YouTube
+  - Vimeo
+  - Instagram
+- For performance, do NOT auto-load all iframes:
+  - Show thumbnail with a play button overlay.
+  - On click, replace thumbnail with the embedded player (iframe or Instagram embed).
+- For Instagram embeds:
+  - Support Reels/Post URLs.
+  - Load Instagram embed script only when needed (lazy load).
+
+CONTACT PAGE (/contact)
+- Simple contact form: Name, Email, Message.
+- Form validation (required fields, email format).
+- On submit:
+  - Option A: send via email using a server action (e.g. nodemailer) with environment variables
+  - Option B: store submissions to a simple local JSON file for now
+  - Implement Option A if possible; fallback to Option B with a clear note in code.
+- Also show direct contact info blocks:
+  - Email
+  - Instagram/Vimeo links
+  - Location (optional)
+
+DESIGN SYSTEM
+- Typography: clean sans font, large headings, compact labels.
+- Colors: black/white/gray only.
+- Components:
+  - Navbar (Home / Work / Contact) with active state.
+  - Footer with small copyright line.
+  - Reusable Card, Tab/Filter, VideoThumbnail component.
+
+DATA MODEL (single source of truth)
+Create /src/data/portfolio.ts with structures like:
+- films: { slug, title, year?, posterUrl, description, credits: { cameraOperator, steadicamOperator? }, links?[] }
+- commercials: { title, platform: "youtube"|"vimeo"|"instagram", url, thumbnailUrl }
+- musicVideos: { title, platform, url, thumbnailUrl }
+
+SEED CONTENT
+- Add 6 films (dummy titles + placeholder posters),
+- Add 8 commercials,
+- Add 8 music videos,
+so the layout looks complete.
+
+DELIVERABLE
+- Provide full working code, run instructions, and ensure it builds with “npm run dev”.
+- Keep everything minimal, clean, and well-structured.

@@ -1,0 +1,54 @@
+Update the existing React website (client/ folder) to redesign the Home page hero section.
+
+GOAL
+- Replace the current static background image with a FULLSCREEN background VIDEO hero.
+- The video must autoplay, muted, loop, and play inline (mobile safe).
+- Keep the design minimalistic and high-contrast (black/white/gray), modern, clean spacing.
+
+IMPLEMENTATION REQUIREMENTS
+1) Add a new component: client/src/components/HeroVideo.tsx
+   - Full viewport height hero section.
+   - Background video covers entire hero (object-fit: cover).
+   - Use <video autoPlay muted loop playsInline preload="metadata" poster="..."> with <source src="/hero.mp4" type="video/mp4" />.
+   - Add a dark overlay gradient above the video for readability.
+   - Add a subtle noise/grain overlay (CSS only) on top of everything (very subtle opacity).
+   - Ensure text remains crisp and accessible.
+
+2) Home page update
+   - Replace existing hero with <HeroVideo />.
+   - Keep the same header/navigation, but make navbar transparent over hero.
+   - When the user scrolls down, navbar becomes solid white with subtle bottom border (sticky behavior).
+   - Add a small “credits line” under the role:
+     “Feature Films • Commercials • Music Videos • Steadicam”
+
+3) Modern, tasteful animations (NO flashy stuff)
+   - Use framer-motion if it’s already installed; if not, install it.
+   - On page load: animate hero text with a subtle fade-up + slight blur-to-sharp (200–400ms).
+   - Stagger hero elements (name, role, line, buttons) by ~80ms.
+   - On scroll: reveal “Selected Work” section with a subtle fade-up.
+
+4) Add a “Selected Work” teaser section below the hero
+   - Show 3 items total:
+     - 1 film poster (from data)
+     - 2 videos (one commercial + one music video)
+   - Each card minimal, with hover underline and slight scale (very subtle).
+   - Add a “View all work →” link to /work.
+
+5) Reduced motion + performance
+   - If prefers-reduced-motion is enabled, do NOT autoplay video. Show poster image background instead.
+   - Video must not block rendering; use preload="metadata".
+   - Ensure mobile performance: no heavy filters, no big shadows, no multiple videos.
+
+ASSETS
+- Add placeholder video at: client/public/hero.mp4 (short, compressed) and poster at client/public/hero-poster.jpg.
+  If actual assets can’t be added, keep code ready and show where to drop files.
+
+FILES TO TOUCH
+- client/src/pages/Home.tsx (or wherever Home is)
+- client/src/components/HeroVideo.tsx (new)
+- client/src/index.css (add hero overlay + grain classes)
+- client/src/components/Navbar.tsx (or nav component) for transparent/solid on scroll
+
+DELIVER
+- Make sure the app runs without errors.
+- Keep code clean and minimal.

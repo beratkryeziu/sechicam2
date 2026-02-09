@@ -42,7 +42,7 @@ export const portfolioData: PortfolioData = {
       description: "A gritty neo-noir thriller set in a dystopian near-future. The camera work emphasizes the isolation of the protagonist through wide, static frames and slow, creeping steadicam moves that suggest an unseen observer.",
       credits: {
         cameraOperator: "Alex Chen",
-        steadicamOperator: "Sarah Jenkins",
+        steadicamOperator: "Jetmir Zenelaj",
         director: "Elena Rossi",
         dop: "Marcus Thorne"
       },
@@ -59,7 +59,7 @@ export const portfolioData: PortfolioData = {
       posterUrl: "/assets/poster_2.jpg",
       description: "An independent drama exploring the underground racing scene. Shot entirely at night, requiring high-sensitivity sensors and fast steadicam operation to keep up with the action without losing the intimate emotional beats.",
       credits: {
-        cameraOperator: "Sarah Jenkins",
+        cameraOperator: "Jetmir Zenelaj",
         director: "James O'Connor"
       }
     },
@@ -71,8 +71,8 @@ export const portfolioData: PortfolioData = {
       posterUrl: "/assets/poster_3.jpg",
       description: "A psychological horror film that relies on long takes to build tension. The steadicam was used to create a floating, dream-like quality that contrasts with the harsh reality of the narrative.",
       credits: {
-        cameraOperator: "Sarah Jenkins",
-        steadicamOperator: "Sarah Jenkins",
+        cameraOperator: "Jetmir Zenelaj",
+        steadicamOperator: "Jetmir Zenelaj",
         dop: "David Kim"
       }
     },
@@ -84,7 +84,7 @@ export const portfolioData: PortfolioData = {
       posterUrl: "/assets/poster_1.jpg",
       description: "A musical documentary capturing the pulse of the city. Handheld and steadicam work blends seamlessly to follow the dancers through chaotic street environments.",
       credits: {
-        cameraOperator: "Sarah Jenkins",
+        cameraOperator: "Jetmir Zenelaj",
       }
     },
     {
@@ -96,7 +96,7 @@ export const portfolioData: PortfolioData = {
       description: "An intimate character study filmed primarily on public transport. The challenge was to operate effectively in tight, moving spaces while maintaining stability.",
       credits: {
         cameraOperator: "Michael Ross",
-        steadicamOperator: "Sarah Jenkins"
+        steadicamOperator: "Jetmir Zenelaj"
       }
     },
     {
@@ -107,8 +107,8 @@ export const portfolioData: PortfolioData = {
       posterUrl: "/assets/poster_3.jpg",
       description: "Sci-fi short film featuring complex action sequences. Required precise coordination between stunts, VFX, and camera movement.",
       credits: {
-        cameraOperator: "Sarah Jenkins",
-        steadicamOperator: "Sarah Jenkins"
+        cameraOperator: "Jetmir Zenelaj",
+        steadicamOperator: "Jetmir Zenelaj"
       }
     }
   ],

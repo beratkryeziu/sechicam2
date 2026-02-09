@@ -74,7 +74,7 @@ export default function HeroVideo() {
               variants={item}
               className="text-4xl md:text-8xl font-heading font-bold tracking-tighter text-white leading-[0.9]"
             >
-              Sarah Jenkins
+              Jetmir Zenelaj
             </motion.h1>
             <motion.div variants={item} className="space-y-1 md:space-y-2">
               <p className="text-lg md:text-2xl text-white/80 font-light tracking-tight">

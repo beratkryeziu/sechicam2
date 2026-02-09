@@ -26,7 +26,7 @@ export default function Home() {
             <div className="space-y-6">
               <h2 className="text-sm uppercase tracking-[0.3em] text-muted-foreground font-medium">About</h2>
               <p className="text-3xl md:text-4xl font-heading font-bold leading-tight tracking-tight">
-                Sarah Jenkins is a professional Camera and Steadicam Operator specializing in narrative features and high-end commercials.
+                Jetmir Zenelaj is a professional Camera and Steadicam Operator specializing in narrative features and high-end commercials.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

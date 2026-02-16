@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import sechicamLogo from "@/assets/sechicam-logo.png";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -37,11 +38,18 @@ export default function Navbar() {
           <Link 
             href="/" 
             className={cn(
-              "text-lg md:text-xl font-heading font-bold tracking-tight uppercase transition-all duration-300",
+              "inline-flex items-center transition-all duration-300",
               isHomePage && !isScrolled && !isMobileMenuOpen ? "text-white" : "text-foreground"
             )}
           >
-            Sechicam
+            <img
+              src={sechicamLogo}
+              alt="Sechicam"
+              className={cn(
+                "h-6 md:h-7 w-auto",
+                isHomePage && !isScrolled && !isMobileMenuOpen ? "brightness-100" : "brightness-0"
+              )}
+            />
           </Link>
 
           {/* Desktop Nav */}

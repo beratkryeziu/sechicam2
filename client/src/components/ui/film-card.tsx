@@ -12,12 +12,12 @@ export default function FilmCard({ film }: FilmCardProps) {
       href={`/work/films/${film.slug}`} 
       className="group block space-y-3 cursor-pointer"
     >
-      <div className="overflow-hidden bg-secondary">
+      <div className="overflow-hidden bg-transparent">
         <AspectRatio ratio={2 / 3}>
           <img
             src={film.posterUrl}
             alt={film.title}
-            className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 ease-out group-hover:scale-105"
+            className="block object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500 ease-out scale-[1.01] group-hover:scale-105"
           />
         </AspectRatio>
       </div>

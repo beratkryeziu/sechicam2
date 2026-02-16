@@ -1,21 +1,10 @@
-import { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import { Link } from "wouter";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import heroBg from "@/assets/home_page_bg.jpeg";
 
 export default function HeroVideo() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-    
-    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
-  }, []);
-
   const container: Variants = {
     hidden: { opacity: 0 },
     show: {
@@ -39,23 +28,17 @@ export default function HeroVideo() {
 
   return (
     <section className="relative h-[90svh] md:h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Video/Background */}
-      <div className="absolute inset-0 z-0">
-        {!prefersReducedMotion ? (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster="/hero-poster.jpg"
-            className="w-full h-full object-cover"
-          >
-            <source src="/hero.mp4" type="video/mp4" />
-          </video>
-        ) : (
-          <img src="/hero-poster.jpg" className="w-full h-full object-cover" alt="Hero background" />
-        )}
+      {/* Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+        aria-hidden
+      >
         {/* Overlays */}
         <div className="absolute inset-0 bg-black/50 md:bg-gradient-to-b md:from-black/60 md:via-black/40 md:to-black/80 z-10" />
         <div className="absolute inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay z-20 noise-overlay" />
@@ -78,7 +61,7 @@ export default function HeroVideo() {
             </motion.h1>
             <motion.div variants={item} className="space-y-1 md:space-y-2">
               <p className="text-lg md:text-2xl text-white/80 font-light tracking-tight">
-                Steadicam Operator
+                Camera/Steadycam Operator
               </p>
               <p className="hidden md:block text-sm text-white/60 font-mono uppercase tracking-[0.2em]">
                 Feature Films • Commercials • Music Videos

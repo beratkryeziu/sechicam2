@@ -35,80 +35,68 @@ export const portfolioData: PortfolioData = {
   films: [
     {
       id: "f1",
-      slug: "shadows-of-tomorrow",
-      title: "Shadows of Tomorrow",
+      slug: "dy-gisht-mjalte-2",
+      title: "Dy Gisht Mjaltë 2",
       year: "2024",
-      posterUrl: "/assets/poster_1.jpg",
-      description: "A gritty neo-noir thriller set in a dystopian near-future. The camera work emphasizes the isolation of the protagonist through wide, static frames and slow, creeping steadicam moves that suggest an unseen observer.",
+      posterUrl: dyGishtMjalte2Poster,
+      description: "",
       credits: {
-        cameraOperator: "Alex Chen",
-        steadicamOperator: "Jetmir Zenelaj",
-        director: "Elena Rossi",
-        dop: "Marcus Thorne"
-      },
-      links: [
-        { label: "IMDb", url: "#" },
-        { label: "Trailer", url: "#" }
-      ]
+        cameraOperator: "Jetmir Zenelaj"
+      }
     },
     {
       id: "f2",
-      slug: "neon-nights",
-      title: "Neon Nights",
+      slug: "hive",
+      title: "HIVE",
       year: "2023",
-      posterUrl: "/assets/poster_2.jpg",
-      description: "An independent drama exploring the underground racing scene. Shot entirely at night, requiring high-sensitivity sensors and fast steadicam operation to keep up with the action without losing the intimate emotional beats.",
+      posterUrl: hivePoster,
+      description: "",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
-        director: "James O'Connor"
+        cameraOperator: "Jetmir Zenelaj"
       }
     },
     {
       id: "f3",
-      slug: "the-silent-echo",
-      title: "The Silent Echo",
+      slug: "ndera",
+      title: "Ndera",
       year: "2023",
-      posterUrl: "/assets/poster_3.jpg",
-      description: "A psychological horror film that relies on long takes to build tension. The steadicam was used to create a floating, dream-like quality that contrasts with the harsh reality of the narrative.",
+      posterUrl: nderaPoster,
+      description: "",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
-        steadicamOperator: "Jetmir Zenelaj",
-        dop: "David Kim"
+        cameraOperator: "Jetmir Zenelaj"
       }
     },
     {
       id: "f4",
-      slug: "urban-rhythm",
-      title: "Urban Rhythm",
+      slug: "shame-and-money",
+      title: "Shame and Money",
       year: "2022",
-      posterUrl: "/assets/poster_1.jpg",
-      description: "A musical documentary capturing the pulse of the city. Handheld and steadicam work blends seamlessly to follow the dancers through chaotic street environments.",
+      posterUrl: shameAndMoneyPoster,
+      description: "",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Jetmir Zenelaj"
       }
     },
     {
       id: "f5",
-      slug: "last-train-home",
-      title: "Last Train Home",
+      slug: "silence-of-sirens",
+      title: "Silence of Sirens",
       year: "2022",
-      posterUrl: "/assets/poster_2.jpg",
-      description: "An intimate character study filmed primarily on public transport. The challenge was to operate effectively in tight, moving spaces while maintaining stability.",
+      posterUrl: silenceOfSirensPoster,
+      description: "",
       credits: {
-        cameraOperator: "Michael Ross",
-        steadicamOperator: "Jetmir Zenelaj"
+        cameraOperator: "Jetmir Zenelaj"
       }
     },
     {
       id: "f6",
-      slug: "veridian",
-      title: "Veridian",
+      slug: "the-land-within",
+      title: "The Land Within",
       year: "2021",
-      posterUrl: "/assets/poster_3.jpg",
-      description: "Sci-fi short film featuring complex action sequences. Required precise coordination between stunts, VFX, and camera movement.",
+      posterUrl: theLandWithinPoster,
+      description: "",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
-        steadicamOperator: "Jetmir Zenelaj"
+        cameraOperator: "Jetmir Zenelaj"
       }
     }
   ],
@@ -237,3 +225,9 @@ export const portfolioData: PortfolioData = {
     }
   ]
 };
+import dyGishtMjalte2Poster from "@/assets/Dy Gisht Mjaltë 2.png";
+import hivePoster from "@/assets/HIVE.png";
+import nderaPoster from "@/assets/Ndera.png";
+import shameAndMoneyPoster from "@/assets/Shame and Money.png";
+import silenceOfSirensPoster from "@/assets/Silence of Sirens.png";
+import theLandWithinPoster from "@/assets/The Land Within.png";

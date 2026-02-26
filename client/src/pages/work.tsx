@@ -1,11 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useLocation, useSearch } from "wouter";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { portfolioData } from "@/data/portfolio";
 import FilmCard from "@/components/ui/film-card";
-import VideoThumbnail from "@/components/ui/video-thumbnail";
+import CommercialCard from "@/components/ui/commercial-card";
+import MusicVideoCard from "@/components/ui/music-video-card";
 import { cn } from "@/lib/utils";
+import { useYoutubeYearsMap } from "@/hooks/use-youtube-years-map";
 
 type Category = "films" | "commercials" | "music-videos";
 
@@ -33,6 +35,37 @@ export default function Work() {
     { id: "commercials", label: "Commercials" },
     { id: "music-videos", label: "Music Videos" },
   ];
+
+  const filmsSorted = useMemo(
+    () =>
+      [...portfolioData.films].sort(
+        (a, b) => Number.parseInt(b.year, 10) - Number.parseInt(a.year, 10),
+      ),
+    [],
+  );
+
+  const commercialYearsById = useYoutubeYearsMap(portfolioData.commercials);
+  const musicVideoYearsById = useYoutubeYearsMap(portfolioData.musicVideos);
+
+  const commercialsSorted = useMemo(
+    () =>
+      [...portfolioData.commercials].sort((a, b) => {
+        const yearA = Number.parseInt(commercialYearsById[a.id] ?? a.year ?? "0", 10);
+        const yearB = Number.parseInt(commercialYearsById[b.id] ?? b.year ?? "0", 10);
+        return yearB - yearA;
+      }),
+    [commercialYearsById],
+  );
+
+  const musicVideosSorted = useMemo(
+    () =>
+      [...portfolioData.musicVideos].sort((a, b) => {
+        const yearA = Number.parseInt(musicVideoYearsById[a.id] ?? a.year ?? "0", 10);
+        const yearB = Number.parseInt(musicVideoYearsById[b.id] ?? b.year ?? "0", 10);
+        return yearB - yearA;
+      }),
+    [musicVideoYearsById],
+  );
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -63,7 +96,7 @@ export default function Work() {
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
           {activeCategory === "films" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
-              {portfolioData.films.map((film) => (
+              {filmsSorted.map((film) => (
                 <FilmCard key={film.id} film={film} />
               ))}
             </div>
@@ -71,16 +104,24 @@ export default function Work() {
 
           {activeCategory === "commercials" && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-              {portfolioData.commercials.map((video) => (
-                <VideoThumbnail key={video.id} video={video} />
+              {commercialsSorted.map((commercial) => (
+                <CommercialCard
+                  key={commercial.id}
+                  commercial={commercial}
+                  year={commercialYearsById[commercial.id] ?? commercial.year}
+                />
               ))}
             </div>
           )}
 
           {activeCategory === "music-videos" && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-              {portfolioData.musicVideos.map((video) => (
-                <VideoThumbnail key={video.id} video={video} />
+              {musicVideosSorted.map((video) => (
+                <MusicVideoCard
+                  key={video.id}
+                  video={video}
+                  year={musicVideoYearsById[video.id] ?? video.year}
+                />
               ))}
             </div>
           )}

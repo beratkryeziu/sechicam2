@@ -16,6 +16,7 @@ export interface FilmProject {
   id: string;
   slug: string;
   title: string;
+  format?: "Feature Film" | "Short Film";
   year: string;
   posterUrl: string;
   description: string;
@@ -73,67 +74,93 @@ export const portfolioData: PortfolioData = {
       id: "f1",
       slug: "dy-gisht-mjalte-2",
       title: "Dy Gisht Mjaltë 2",
+      format: "Feature Film",
       year: "2024",
       posterUrl: dyGishtMjalte2Poster,
-      description: "",
+      description:
+        "A newly married couple heads to Turkey for a family vacation, but a ticket mix-up sends them to the wrong airport and into a chain of comic misadventures.",
       credits: {
         cameraOperator: "Jetmir Zenelaj",
+        director: "Ermal Mamaqi",
+        dop: "Emre Karabek",
       },
+      links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt30143468/" }],
     },
     {
       id: "f2",
       slug: "hive",
       title: "HIVE",
-      year: "2023",
+      format: "Feature Film",
+      year: "2021",
       posterUrl: hivePoster,
-      description: "",
+      description:
+        "With her husband still missing after the war, Fahrije starts a small ajvar business to support her children while facing resistance from her patriarchal community.",
       credits: {
         cameraOperator: "Jetmir Zenelaj",
+        director: "Blerta Basholli",
+        dop: "Alex Bloom",
       },
+      links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt13648212/" }],
     },
     {
       id: "f3",
       slug: "ndera",
       title: "Ndera",
-      year: "2023",
+      format: "Short Film",
+      year: "2025",
       posterUrl: nderaPoster,
-      description: "",
+      description:
+        "After a tragic accident, a young man named Ylber seeks refuge in a remote village, where his arrival stirs suspicion and exposes a dangerous hidden truth.",
       credits: {
         cameraOperator: "Jetmir Zenelaj",
+        director: "Endrit Qarolli",
       },
+      links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt37676626/" }],
     },
     {
       id: "f4",
       slug: "shame-and-money",
       title: "Shame and Money",
-      year: "2022",
+      format: "Feature Film",
+      year: "2026",
       posterUrl: shameAndMoneyPoster,
-      description: "",
+      description:
+        "A proud family man struggles to provide as financial pressure mounts, forcing him to choose between personal dignity and survival.",
       credits: {
         cameraOperator: "Jetmir Zenelaj",
+        director: "Visar Morina",
       },
+      links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt39140264/" }],
     },
     {
       id: "f5",
       slug: "silence-of-sirens",
       title: "Silence of Sirens",
-      year: "2022",
+      format: "Feature Film",
+      year: "2023",
       posterUrl: silenceOfSirensPoster,
-      description: "",
+      description:
+        "Avni, a traffic police officer in a small Kosovo town, gets pulled into a corruption case that spirals beyond his control after a late-night escort job.",
       credits: {
         cameraOperator: "Jetmir Zenelaj",
+        director: "Gazmend Nela",
       },
+      links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt27317882/" }],
     },
     {
       id: "f6",
       slug: "the-land-within",
       title: "The Land Within",
-      year: "2021",
+      format: "Feature Film",
+      year: "2022",
       posterUrl: theLandWithinPoster,
-      description: "",
+      description:
+        "When a mass grave is exhumed in their childhood village, buried family secrets surface and force a painful reckoning with the past.",
       credits: {
         cameraOperator: "Jetmir Zenelaj",
+        director: "Fisnik Maxville",
       },
+      links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt15717484/" }],
     },
   ],
   commercials: [

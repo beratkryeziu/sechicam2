@@ -36,6 +36,7 @@ export default function HeroVideo() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          transform: "scaleX(-1)",
         }}
         aria-hidden
       >
@@ -55,16 +56,17 @@ export default function HeroVideo() {
           <div className="space-y-3 md:space-y-4">
             <motion.h1 
               variants={item}
-              className="text-4xl md:text-8xl font-heading font-bold tracking-tighter text-white leading-[0.9]"
+              className="text-2xl md:text-5xl font-heading font-bold tracking-tighter text-white leading-[0.9]"
             >
               Jetmir Zenelaj
             </motion.h1>
             <motion.div variants={item} className="space-y-1 md:space-y-2">
-              <p className="text-lg md:text-2xl text-white/80 font-light tracking-tight">
-                Camera/Steadycam Operator
+              <p className="text-lg md:text-2xl text-[#fcbe11] font-light tracking-tight">
+                Steadycam & Camera operator 
               </p>
+              <div className="h-px w-24 bg-[#fcbe11]/70" />
               <p className="hidden md:block text-sm text-white/60 font-mono uppercase tracking-[0.2em]">
-                Feature Films • Commercials • Music Videos
+                Films • Commercials • Music Videos
               </p>
             </motion.div>
           </div>
@@ -84,17 +86,6 @@ export default function HeroVideo() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator - hidden on small mobile */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex-col items-center gap-2"
-      >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Scroll</span>
-        <div className="w-px h-8 md:h-12 bg-gradient-to-b from-white/40 to-transparent" />
-      </motion.div>
     </section>
   );
 }

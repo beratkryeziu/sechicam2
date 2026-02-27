@@ -8,6 +8,7 @@ export default function Navbar() {
   const [location] = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [logoBlinkTick, setLogoBlinkTick] = useState(0);
   const isHomePage = location === "/";
 
   useEffect(() => {
@@ -17,6 +18,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setLogoBlinkTick((tick) => tick + 1);
+  }, [location]);
+
+  const triggerLogoBlink = () => {
+    setLogoBlinkTick((tick) => tick + 1);
+  };
 
   const navItems = [
     { label: "Home", href: "/" },
@@ -31,25 +40,30 @@ export default function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isHomePage && !isScrolled && !isMobileMenuOpen
             ? "bg-transparent py-6 md:py-8" 
-            : "bg-background/90 backdrop-blur-md border-b border-border/40 py-4 shadow-sm"
+            : "bg-transparent py-4 md:py-6"
         )}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link 
             href="/" 
+            onClick={triggerLogoBlink}
             className={cn(
               "inline-flex items-center transition-all duration-300",
               isHomePage && !isScrolled && !isMobileMenuOpen ? "text-white" : "text-foreground"
             )}
           >
-            <img
-              src={sechicamLogo}
-              alt="Sechicam"
-              className={cn(
-                "h-6 md:h-7 w-auto",
-                isHomePage && !isScrolled && !isMobileMenuOpen ? "brightness-100" : "brightness-0"
-              )}
-            />
+            <span className="relative inline-flex items-center">
+              <img
+                src={sechicamLogo}
+                alt="Sechicam"
+                className="h-6 md:h-7 w-auto brightness-100"
+              />
+              <span
+                key={logoBlinkTick}
+                className="logo-dot-blink pointer-events-none absolute left-[76.1%] top-[72.5%] h-[4.5px] w-[4.5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500 md:h-[5px] md:w-[5px]"
+                aria-hidden
+              />
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -59,10 +73,14 @@ export default function Navbar() {
                 key={item.href} 
                 href={item.href}
                 className={cn(
-                  "text-sm font-medium tracking-wide uppercase transition-colors",
+                  "relative text-sm font-semibold tracking-wide uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-2 after:h-px after:bg-[var(--accent)] after:transition-all after:duration-200",
                   isHomePage && !isScrolled
-                    ? (location === item.href ? "text-white" : "text-white/60 hover:text-white")
-                    : (location === item.href ? "text-foreground" : "text-muted-foreground hover:text-foreground")
+                    ? (location === item.href
+                      ? "text-white after:w-full"
+                      : "text-white/60 hover:text-[var(--accent)] after:w-0 hover:after:w-full")
+                    : (location === item.href
+                      ? "text-foreground after:w-full"
+                      : "text-muted-foreground hover:text-[var(--accent)] after:w-0 hover:after:w-full")
                 )}
               >
                 {item.label}

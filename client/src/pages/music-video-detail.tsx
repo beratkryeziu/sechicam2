@@ -7,7 +7,6 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import NotFound from "@/pages/not-found";
 import { toEmbedUrl, toThumbnailUrl } from "@/lib/video-url";
-import { useYoutubeYear } from "@/hooks/use-youtube-year";
 
 export default function MusicVideoDetail() {
   const [, params] = useRoute("/work/music-videos/:slug");
@@ -19,7 +18,9 @@ export default function MusicVideoDetail() {
 
   const embedUrl = toEmbedUrl(video.url, video.platform);
   const thumbnailUrl = toThumbnailUrl(video.url, video.platform, video.thumbnailUrl);
-  const year = useYoutubeYear(video.url, video.platform, video.year);
+  const titleParts = video.title.split(" - ");
+  const artist = titleParts.length > 1 ? titleParts[0].trim() : "";
+  const songTitle = titleParts.length > 1 ? titleParts.slice(1).join(" - ").trim() : video.title;
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
@@ -63,20 +64,19 @@ export default function MusicVideoDetail() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-12">
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-8">
             <div>
-              <h1 className="text-4xl md:text-6xl font-heading font-bold tracking-tight mb-2">
-                {video.title}
+              <h1 className="text-4xl md:text-6xl font-heading font-bold tracking-tight">
+                {songTitle}
               </h1>
-              <span className="text-xl text-muted-foreground font-mono">{year || "tbd"}</span>
             </div>
 
-            <div className="space-y-8 max-w-prose">
-              <p className="text-lg leading-relaxed text-foreground/90">
-                {video.description || "Music video project from the Steadycam Operator portfolio."}
-              </p>
-
+            <div className="space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-t border-b border-border">
+                <div>
+                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Client</h4>
+                  <p className="font-medium">{artist || "N/A"}</p>
+                </div>
                 <div>
                   <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Production</h4>
                   <p className="font-medium">{video.production}</p>

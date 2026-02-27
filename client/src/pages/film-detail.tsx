@@ -45,38 +45,36 @@ export default function FilmDetail() {
               <h1 className="text-4xl md:text-6xl font-heading font-bold tracking-tight mb-2">
                 {film.title}
               </h1>
-              <span className="text-xl text-muted-foreground font-mono">{film.year}</span>
+              <span className="text-xl text-muted-foreground font-mono">
+                {(film.format || "Feature Film") + " • " + film.year}
+              </span>
+              {film.description && (
+                <p className="text-lg leading-relaxed text-foreground/90 mt-6 max-w-prose">
+                  {film.description}
+                </p>
+              )}
             </div>
 
-            <div className="space-y-8 max-w-prose">
-              <p className="text-lg leading-relaxed text-foreground/90">
-                {film.description}
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-t border-b border-border">
-                <div>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Role</h4>
-                  <p className="font-medium">Camera Operator</p>
-                  <p className="text-foreground/80">{film.credits.cameraOperator}</p>
-                </div>
-                {film.credits.steadicamOperator && (
-                  <div>
-                    <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Steadicam</h4>
-                    <p className="font-medium">{film.credits.steadicamOperator}</p>
-                  </div>
-                )}
-                {film.credits.director && (
+            <div className="space-y-8">
+              <div className="overflow-x-auto py-8 border-t border-b border-border">
+                <div className="flex items-start gap-8 min-w-max">
                   <div>
                     <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Director</h4>
-                    <p className="font-medium">{film.credits.director}</p>
+                    <p className="font-medium">{film.credits.director || "TBD"}</p>
                   </div>
-                )}
-                {film.credits.dop && (
                   <div>
                     <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">DOP</h4>
-                    <p className="font-medium">{film.credits.dop}</p>
+                    <p className="font-medium">{film.credits.dop || "TBD"}</p>
                   </div>
-                )}
+                  <div>
+                    <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                      {film.credits.steadicamOperator ? "Steadycam Operator" : "Camera Operator"}
+                    </h4>
+                    <p className="font-medium">
+                      {film.credits.steadicamOperator || film.credits.cameraOperator}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {film.links && film.links.length > 0 && (

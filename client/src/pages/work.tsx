@@ -8,11 +8,12 @@ import CommercialCard from "@/components/ui/commercial-card";
 import MusicVideoCard from "@/components/ui/music-video-card";
 import { cn } from "@/lib/utils";
 import { useYoutubeYearsMap } from "@/hooks/use-youtube-years-map";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 type Category = "films" | "commercials" | "music-videos";
 
 export default function Work() {
+  const prefersReducedMotion = useReducedMotion();
   const [location, setLocation] = useLocation();
   const search = useSearch();
   const [activeCategory, setActiveCategory] = useState<Category>("films");
@@ -79,7 +80,7 @@ export default function Work() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
       
-      <main className="flex-1 container mx-auto px-6 py-32">
+      <main className="page flex-1 container mx-auto px-6 py-32">
         <header className="mb-16 space-y-8">
           <h1 className="text-4xl md:text-5xl font-heading font-bold tracking-tight">Work</h1>
           
@@ -104,10 +105,10 @@ export default function Work() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeCategory}
-            initial={{ opacity: 0, y: 24, filter: "blur(10px)" }}
+            initial={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: 10, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -12, filter: "blur(8px)" }}
-            transition={{ duration: 0.38, ease: "easeOut" }}
+            exit={prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -8, filter: "blur(4px)" }}
+            transition={{ duration: prefersReducedMotion ? 0.01 : 0.3, ease: "easeInOut" }}
           >
             {activeCategory === "films" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">

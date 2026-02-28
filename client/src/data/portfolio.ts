@@ -10,6 +10,7 @@ export interface Credit {
   steadicamOperator?: string;
   director?: string;
   dop?: string;
+  roleLabel?: string;
 }
 
 export interface FilmProject {
@@ -73,16 +74,17 @@ export const portfolioData: PortfolioData = {
     {
       id: "f1",
       slug: "dy-gisht-mjalte-2",
-      title: "Dy Gisht Mjaltë 2",
+      title: "2 Fingers Honey 2",
       format: "Feature Film",
       year: "2024",
       posterUrl: dyGishtMjalte2Poster,
       description:
-        "A newly married couple heads to Turkey for a family vacation, but a ticket mix-up sends them to the wrong airport and into a chain of comic misadventures.",
+        'The sequel to the movie "2 Fingers Honey" by Ermal Mamaqi. The adventures of the newly married couple continue. This time, they leave for a family vacation to Turkey but mix up their plane tickets and end up at the wrong airport.',
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Sechicam",
         director: "Ermal Mamaqi",
         dop: "Emre Karabek",
+        roleLabel: "Steadicam Operator",
       },
       links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt30143468/" }],
     },
@@ -94,11 +96,12 @@ export const portfolioData: PortfolioData = {
       year: "2021",
       posterUrl: hivePoster,
       description:
-        "With her husband still missing after the war, Fahrije starts a small ajvar business to support her children while facing resistance from her patriarchal community.",
+        "Fahrije's husband has been missing since the war in Kosovo. She sets up her own small business to provide for her kids, but as she fights against a patriarchal society that does not support her, she faces a crucial decision.",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Sechicam",
         director: "Blerta Basholli",
         dop: "Alex Bloom",
+        roleLabel: "Camera B Operator",
       },
       links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt13648212/" }],
     },
@@ -110,10 +113,12 @@ export const portfolioData: PortfolioData = {
       year: "2025",
       posterUrl: nderaPoster,
       description:
-        "After a tragic accident, a young man named Ylber seeks refuge in a remote village, where his arrival stirs suspicion and exposes a dangerous hidden truth.",
+        "After a tragic accident, a young man named Ylber seeks refuge in a remote Albanian village, where he is welcomed by Demush, a stoic villager who is unaware that his guest may be hiding a dangerous truth.",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Sechicam",
         director: "Endrit Qarolli",
+        dop: "Max Williams",
+        roleLabel: "Steadicam Operator",
       },
       links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt37676626/" }],
     },
@@ -125,10 +130,12 @@ export const portfolioData: PortfolioData = {
       year: "2026",
       posterUrl: shameAndMoneyPoster,
       description:
-        "A proud family man struggles to provide as financial pressure mounts, forcing him to choose between personal dignity and survival.",
+        "A proud family man struggles to provide as financial pressures mount. Though his mother and brother-in-law offer help, accepting support wounds his dignity. As stability slips away, he faces tough choices about pride versus survival.",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Sechicam",
         director: "Visar Morina",
+        dop: "Janis Mazuch",
+        roleLabel: "Steadycam & Camera B Operator",
       },
       links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt39140264/" }],
     },
@@ -140,10 +147,12 @@ export const portfolioData: PortfolioData = {
       year: "2023",
       posterUrl: silenceOfSirensPoster,
       description:
-        "Avni, a traffic police officer in a small Kosovo town, gets pulled into a corruption case that spirals beyond his control after a late-night escort job.",
+        "Avni is a traffic police officer in a small town in Kosovo, an ordinary policeman and family man, neither very honest nor very brave. Together with his partner Gezim, he accepts petty bribes from the drivers they arrest for speeding. One night, thinking they were doing the right thing, they escort a drunken international court prosecutor to the station with a duffel bag full of money in the back of his car. Avni and Gezim find themselves embroiled in a corruption case that is way beyond them.",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Sechicam",
         director: "Gazmend Nela",
+        dop: "Stephané Kuthy",
+        roleLabel: "Camera B Operator",
       },
       links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt27317882/" }],
     },
@@ -155,10 +164,12 @@ export const portfolioData: PortfolioData = {
       year: "2022",
       posterUrl: theLandWithinPoster,
       description:
-        "When a mass grave is exhumed in their childhood village, buried family secrets surface and force a painful reckoning with the past.",
+        "The exhumation of a mass grave in a village makes secrets from the past emerge along with the bodies.",
       credits: {
-        cameraOperator: "Jetmir Zenelaj",
+        cameraOperator: "Sechicam",
         director: "Fisnik Maxville",
+        dop: "Yann Maritaud",
+        roleLabel: "Camera B Operator",
       },
       links: [{ label: "Watch IMDb", url: "https://www.imdb.com/title/tt15717484/" }],
     },

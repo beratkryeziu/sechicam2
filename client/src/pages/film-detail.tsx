@@ -19,10 +19,10 @@ export default function FilmDetail() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
 
-      <main className="flex-1 container mx-auto px-6 py-32">
+      <main className="page flex-1 container mx-auto px-6 py-32">
         <Link 
           href="/work?category=films"
-          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-12 uppercase tracking-wide"
+          className="inline-flex items-center text-hover-accent text-sm text-muted-foreground hover:text-[var(--accent)] transition-colors mb-12 uppercase tracking-wide"
         >
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Work
         </Link>
@@ -63,12 +63,14 @@ export default function FilmDetail() {
                     <p className="font-medium">{film.credits.director || "TBD"}</p>
                   </div>
                   <div>
-                    <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">DOP</h4>
+                    <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                      Director of Photography
+                    </h4>
                     <p className="font-medium">{film.credits.dop || "TBD"}</p>
                   </div>
                   <div>
                     <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">
-                      {film.credits.steadicamOperator ? "Steadycam Operator" : "Camera Operator"}
+                      {film.credits.roleLabel || (film.credits.steadicamOperator ? "Steadicam Operator" : "Camera Operator")}
                     </h4>
                     <p className="font-medium">
                       {film.credits.steadicamOperator || film.credits.cameraOperator}

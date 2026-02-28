@@ -13,8 +13,9 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 120);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,13 +38,11 @@ export default function Navbar() {
     <>
       <nav 
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isHomePage && !isScrolled && !isMobileMenuOpen
-            ? "bg-transparent py-6 md:py-8" 
-            : "bg-transparent py-4 md:py-6"
+          "site-nav fixed top-0 left-0 right-0 z-[9999]",
+          isScrolled && "scrolled"
         )}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+        <div className="mx-auto flex h-full items-center justify-between px-[clamp(20px,5vw,80px)]">
           <Link 
             href="/" 
             onClick={triggerLogoBlink}
@@ -56,7 +55,7 @@ export default function Navbar() {
               <img
                 src={sechicamLogo}
                 alt="Sechicam"
-                className="h-6 md:h-7 w-auto brightness-100"
+                className="h-[34px] w-auto brightness-100"
               />
               <span
                 key={logoBlinkTick}
@@ -73,7 +72,7 @@ export default function Navbar() {
                 key={item.href} 
                 href={item.href}
                 className={cn(
-                  "relative text-sm font-semibold tracking-wide uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-2 after:h-px after:bg-[var(--accent)] after:transition-all after:duration-200",
+                  "relative text-hover-accent text-sm font-semibold tracking-wide uppercase transition-colors duration-200 after:absolute after:left-0 after:-bottom-2 after:h-px after:bg-[var(--accent)] after:transition-all after:duration-200",
                   isHomePage && !isScrolled
                     ? (location === item.href
                       ? "text-white after:w-full"
@@ -111,7 +110,7 @@ export default function Navbar() {
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
-                "text-2xl font-heading font-bold uppercase tracking-widest transition-colors",
+                "text-hover-accent text-2xl font-heading font-bold uppercase tracking-widest transition-colors",
                 location === item.href ? "text-foreground" : "text-muted-foreground"
               )}
             >

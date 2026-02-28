@@ -16,7 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -59,7 +59,7 @@ export default function Contact() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
       
-      <main className="flex-1 container mx-auto px-6 py-32">
+      <main className="page flex-1 container mx-auto px-6 py-32">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-32">
           
           <div className="space-y-12">
@@ -76,7 +76,15 @@ export default function Contact() {
                 <h3 className="text-sm uppercase tracking-widest font-medium text-foreground/50">Direct Contact</h3>
                 <div className="flex items-center gap-3 text-lg">
                   <Mail className="w-5 h-5" />
-                  <a href="mailto:hello@sechicam.com" className="hover:underline">hello@sechicam.com</a>
+                  <a href="mailto:jetmirzenelaj1@gmail.com" className="text-hover-accent hover:underline">
+                    jetmirzenelaj1@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3 text-lg">
+                  <Phone className="w-5 h-5" />
+                  <a href="tel:+38344628276" className="text-hover-accent hover:underline">
+                    +383 44 628 276
+                  </a>
                 </div>
               </div>
 
@@ -84,16 +92,29 @@ export default function Contact() {
                 <h3 className="text-sm uppercase tracking-widest font-medium text-foreground/50">Location</h3>
                 <div className="flex items-center gap-3 text-lg">
                   <MapPin className="w-5 h-5" />
-                  <span>Los Angeles, CA</span>
+                  <span>Prishtine, Kosovo</span>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <h3 className="text-sm uppercase tracking-widest font-medium text-foreground/50">Social</h3>
                 <div className="flex gap-6">
-                  <a href="#" className="text-lg hover:underline decoration-1 underline-offset-4">Instagram</a>
-                  <a href="#" className="text-lg hover:underline decoration-1 underline-offset-4">Vimeo</a>
-                  <a href="#" className="text-lg hover:underline decoration-1 underline-offset-4">IMDb</a>
+                  <a
+                    href="https://www.instagram.com/sechicam/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-hover-accent text-lg hover:underline decoration-1 underline-offset-4"
+                  >
+                    Instagram
+                  </a>
+                  <a
+                    href="https://www.imdb.com/name/nm8605902/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-hover-accent text-lg hover:underline decoration-1 underline-offset-4"
+                  >
+                    IMDb
+                  </a>
                 </div>
               </div>
             </div>

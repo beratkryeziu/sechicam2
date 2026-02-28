@@ -27,10 +27,10 @@ export default function CommercialDetail() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
 
-      <main className="flex-1 container mx-auto px-6 py-32">
+      <main className="page flex-1 container mx-auto px-6 py-32">
         <Link
           href="/work?category=commercials"
-          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-12 uppercase tracking-wide"
+          className="inline-flex items-center text-hover-accent text-sm text-muted-foreground hover:text-[var(--accent)] transition-colors mb-12 uppercase tracking-wide"
         >
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Work
         </Link>

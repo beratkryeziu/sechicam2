@@ -26,10 +26,10 @@ export default function MusicVideoDetail() {
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
 
-      <main className="flex-1 container mx-auto px-6 py-32">
+      <main className="page flex-1 container mx-auto px-6 py-32">
         <Link
           href="/work?category=music-videos"
-          className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors mb-12 uppercase tracking-wide"
+          className="inline-flex items-center text-hover-accent text-sm text-muted-foreground hover:text-[var(--accent)] transition-colors mb-12 uppercase tracking-wide"
         >
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Work
         </Link>
@@ -74,7 +74,7 @@ export default function MusicVideoDetail() {
             <div className="space-y-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-8 border-t border-b border-border">
                 <div>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Client</h4>
+                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Singer</h4>
                   <p className="font-medium">{artist || "N/A"}</p>
                 </div>
                 <div>

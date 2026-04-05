@@ -101,7 +101,7 @@
 
 .logo-dot-blink {
   animation: logo-dot-blink 0.8s ease-in-out 1 forwards;
-  box-shadow: 0 0 6px rgb(193 18 31 / 0.75);
+  box-shadow: 0 0 3px rgb(193 18 31 / 0.05);
 }
 
 .dark {

@@ -24,6 +24,20 @@ export default function Navbar() {
     setLogoBlinkTick((tick) => tick + 1);
   }, [location]);
 
+  useEffect(() => {
+    const handleUserInteraction = () => {
+      setLogoBlinkTick((tick) => tick + 1);
+    };
+
+    window.addEventListener("keydown", handleUserInteraction);
+    window.addEventListener("pointerdown", handleUserInteraction);
+
+    return () => {
+      window.removeEventListener("keydown", handleUserInteraction);
+      window.removeEventListener("pointerdown", handleUserInteraction);
+    };
+  }, []);
+
   const triggerLogoBlink = () => {
     setLogoBlinkTick((tick) => tick + 1);
   };
